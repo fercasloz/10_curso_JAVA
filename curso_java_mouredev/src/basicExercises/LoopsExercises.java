@@ -107,5 +107,27 @@ public class LoopsExercises {
         }
         // 10. Crea un programa que calcule el factorial de un número dado.
         System.out.println("-----------EJERCICIO 10-----------");
+
+        int factorial = 20;
+        double resultado = 1;
+        for(int d = 1; d <= factorial ; d++){
+            resultado = resultado * d;
+        }
+        System.out.println(resultado);
+
+        /* OTRA VERSIÓN CON DO-WHILE Y BIGINTEGER
+
+        int n = 20;
+        BigInteger resultado = BigInteger.ONE;
+        int i = 1;
+
+        do {
+            resultado = resultado.multiply(BigInteger.valueOf(i));
+            i++;
+        } while (i <= n);
+
+        System.out.println(n + "! = " + resultado);
+
+         */
     }
 }
