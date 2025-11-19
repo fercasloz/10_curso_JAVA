@@ -1,5 +1,7 @@
 package basicExercises;
 
+import java.util.ArrayList;
+
 public class FunctionsExercises {
     public static void main(String[] args) {
 
@@ -16,16 +18,26 @@ public class FunctionsExercises {
         System.out.println(cuadrado(5));
 
         System.out.println("-----------Ejercicio 5-----------");
+        System.out.println(even(4));
 
         System.out.println("-----------Ejercicio 6-----------");
+        System.out.println(isAdult(18));
 
         System.out.println("-----------Ejercicio 7-----------");
+        System.out.println(length("Hola Fer"));
 
         System.out.println("-----------Ejercicio 8-----------");
+        int[] test1 = {5,10,15};
+        System.out.println(average(test1));
 
         System.out.println("-----------Ejercicio 9-----------");
 
         System.out.println("-----------Ejercicio 10-----------");
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Ana");
+        names.add("Fer");
+        names.add("Mama");
+        System.out.println(showStrings(names));
     }
 
 
@@ -51,15 +63,55 @@ public class FunctionsExercises {
     }
 
     // 5. Escribe una función que reciba un número y diga si es par o impar.
+    public static String even(int num2){
+        if(num2 % 2 == 0){
+            return "Es un número par";
+        }
+        return "Es un número impar";
+    }
 
     // 6. Crea un método que reciba una edad y retorne true si es mayor de edad (y false en caso contrario).
+    public static boolean isAdult(int num3){
+        if(num3 >= 18){
+            return true;
+        }
+        return false;
+    }
 
     // 7. Implementa una función que reciba una cadena y retorne su longitud.
+    public static Integer length(String chain){
+       int longitud = 0;
+       for(char c : chain.toCharArray()){
+           longitud ++;
+       }
+       return longitud;
+    }
 
     //  8. Crea un método que reciba un array de enteros, calcula su media y lo retorna.
+    public static double average(int []numbers){
+        int sum=0;
+        for(int number : numbers){
+            sum += number;
+        }
+        double average = (sum)/(numbers.length);
+        return average;
+    }
 
     // 9. Escribe un método que reciba un número y retorna su factorial.
+    public static Double factorial(int num4){
+        return 15.0;
+    }
+    
 
     // 10. Crea una función que reciba un ArrayList<String> y lo recorra mostrando cada elemento.
+    public static StringBuilder showStrings(ArrayList<String> lista){
+        StringBuilder resultado = new StringBuilder();
+
+        for(String str : lista){
+            //System.out.println(str);
+            resultado.append(str+ "\n");
+        }
+        return resultado;
+    }
 
 }
