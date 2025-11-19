@@ -31,6 +31,7 @@ public class FunctionsExercises {
         System.out.println(average(test1));
 
         System.out.println("-----------Ejercicio 9-----------");
+        System.out.println(factorial(5));
 
         System.out.println("-----------Ejercicio 10-----------");
         ArrayList<String> names = new ArrayList<>();
@@ -99,7 +100,12 @@ public class FunctionsExercises {
 
     // 9. Escribe un método que reciba un número y retorna su factorial.
     public static Double factorial(int num4){
-        return 15.0;
+        double resultado=1;
+        for (int i = 1; i <= num4; i++){
+            resultado *= i ;
+        }
+
+        return resultado;
     }
     
 
@@ -113,6 +119,6 @@ public class FunctionsExercises {
         }
         return resultado;
     }
-    
+
 
 }
