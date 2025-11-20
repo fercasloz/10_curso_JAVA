@@ -10,6 +10,7 @@ public class ClassesExercises {
         Book book = new Book("Cien años de soledad","Stephen");
         book.showBook();
 
+
         // 2. Crea una clase Dog con un método bark() que imprima su sonido.
         System.out.println("---------------Ejercicio 2---------------");
         Dog dog = new Dog();
@@ -148,8 +149,8 @@ class Rectangle{
 }
 
 class Worker{
-    String name;
-    int salario;
+    private String name;
+    private int salario;
     public Worker(String name, int salario){
         this.name = name;
         this.salario = salario;
