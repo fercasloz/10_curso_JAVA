@@ -4,6 +4,11 @@ public class InheritanceExercises {
     public static void main(String[] args) {
 
         // 1. Crea una clase Vehicle con un método move(). Luego crea una subclase Car que herede de Vehicle y agrega el método honk().
+        Vehicle vehicle = new Vehicle();
+        vehicle.move();
+        Car3 car3 = new Car3();
+        car3.move();
+        car3.hank();
 
         // 2. Define una clase Person con los atributos name y age. Luego crea una clase Student que agregue el atributo grade y un método study().
 
@@ -22,5 +27,25 @@ public class InheritanceExercises {
         // 9. Crea una clase Vehicle y tres subclases: Car, Bike y Truck, cada una con un método describe() sobrescrito.
 
         // 10. Crea un ArrayList<Animal> que contenga instancias de Dog, Cat y Bird. Recorre la lista y llama a makeSound().
+    }
+}
+
+
+class Vehicle{
+    public Vehicle(){
+
+    }
+    public void move(){
+        System.out.println("El vehículo se mueve");
+    }
+}
+
+class Car3 extends Vehicle{
+    public Car3(){
+
+    }
+
+    public void hank(){
+        System.out.println("Método hank");
     }
 }
