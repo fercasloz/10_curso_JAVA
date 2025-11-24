@@ -1,4 +1,4 @@
-package basicExercises;
+package OOP;
 
 public class PolymorphismExercises {
     public static void main(String[] args) {

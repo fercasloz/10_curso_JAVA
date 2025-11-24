@@ -1,4 +1,4 @@
-package basicExercises;
+package OOP;
 
 public class AbstractionExercises {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package basicExercises;
+package OOP;
 
 public class AccessModifiersExercises {
     public static void main(String[] args) {
