@@ -56,12 +56,12 @@ public class ClassesExercises {
 
         // 9. Crea varios objetos Person y guárdalos en un ArrayList.
         System.out.println("---------------Ejercicio 9---------------");
-        ArrayList<Person> personas = new ArrayList<>();
-        personas.add(new Person("Fernando"));
-        personas.add(new Person("Ana"));
-        personas.add(new Person("Thor"));
+        ArrayList<Person2> personas = new ArrayList<>();
+        personas.add(new Person2("Fernando"));
+        personas.add(new Person2("Ana"));
+        personas.add(new Person2("Thor"));
 
-        for(Person p : personas){
+        for(Person2 p : personas){
             System.out.println(p.getName());
         }
 
@@ -161,9 +161,9 @@ class Worker{
 }
 
 
-class Person{
+class Person2{
     String name;
-    public Person(String name){
+    public Person2(String name){
         this.name=name;
     }
     public String getName(){
