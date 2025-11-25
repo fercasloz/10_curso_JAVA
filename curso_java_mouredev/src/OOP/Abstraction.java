@@ -17,6 +17,9 @@ public class Abstraction {
         cat.sound();
 
         // - Interface
+
+
+
     }
 
 
@@ -56,6 +59,48 @@ public class Abstraction {
         public void sleep(){
             System.out.println("El gato está durmiendo");
         }
+    }
+
+    public static class Bird extends Animal implements Flying, Flying2{
+        @Override
+        public void sound() {
+            System.out.println("Pio Pio");
+        }
+        @Override
+        public void fly() {
+            System.out.println("El pajaro está volando");
+        }
+
+        @Override
+        public void fly2() {
+
+        }
+    }
+
+    public static class Bat extends Animal implements Flying, Flying2{ // Implementación múltiple
+        @Override
+        public void sound() {
+            System.out.println("Soy Batman!");
+        }
+        @Override
+        public void fly() {
+            System.out.println("El murciélago está volando");
+        }
+
+        @Override
+        public void fly2() {
+
+        }
+    }
+
+    // - Interface
+
+    public interface Flying{
+        void fly();
+    }
+
+    public interface Flying2{
+        void fly2();
     }
 
 }
