@@ -1,4 +1,4 @@
-package basicExercises;
+package parteFinalCurso;
 
 public class ExtrasExercises {
     public static void main(String[] args) {
