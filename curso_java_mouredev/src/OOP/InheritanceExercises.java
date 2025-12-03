@@ -1,5 +1,7 @@
 package OOP;
 
+import java.util.ArrayList;
+
 public class InheritanceExercises {
     public static void main(String[] args) {
 
@@ -37,23 +39,95 @@ public class InheritanceExercises {
 
         // 5. Crea una clase abstracta Shape con un método calculateArea(). Luego implementa ese método en Circle y Rectangle.
         System.out.println("----------------Ejercicio 5----------------");
+        var circle = new Circle3(2.5);
+        circle.calculateArea();
+        var rectangle = new Rectangle3(5,10);
+        rectangle.calculateArea();
+
 
         // 6. Crea una clase Bird con el método fly(). Luego crea Eagle que sobrescriba fly() pero también llame al método original con super.fly().
         System.out.println("----------------Ejercicio 6----------------");
+        var eagle = new Eagle3();
+        eagle.fly();
 
         // 7. Haz una clase Device con un constructor que imprima “Device created”. Luego crea Phone que herede de Device y en su constructor imprima “Phone ready”.
         System.out.println("----------------Ejercicio 7----------------");
+        var phone = new Phone3();
+
 
         // 8. Account tiene un saldo y métodos para deposit() y withdraw(). SavingsAccount hereda y agrega un método addInterest().
         System.out.println("----------------Ejercicio 8----------------");
+        var account = new Account3(50000);
+        account.withdraw(35000);
+        account.deposit(10000);
+        account.withdraw(60000);
+
+        var saveaccount = new SaveAccounts3(20000);
+        saveaccount.addInterest(50);
+        saveaccount.addInterest(150);
+
 
         // 9. Crea una clase Vehicle y tres subclases: Car, Bike y Truck, cada una con un método describe() sobrescrito.
         System.out.println("----------------Ejercicio 9----------------");
+        var car = new Car31();
+        System.out.println(car.describe());
+        var bike = new Bike31();
+        System.out.println(bike.describe());
+        var truck = new Truck31();
+        System.out.println(truck.describe());
+
 
         // 10. Crea un ArrayList<Animal> que contenga instancias de Dog, Cat y Bird. Recorre la lista y llama a makeSound().
         System.out.println("----------------Ejercicio 10----------------");
+        ArrayList<Animal3> animals = new ArrayList<>();
+        animals.add(new Dog3());
+        animals.add(new Cat3());
+
+        for (Animal3 a : animals){
+            a.makeSound3();
+        }
     }
 }
+
+
+abstract class Vehicle3{
+    public String describe(){
+        return "El vehiculo es";
+    }
+}
+
+class Car31 extends Vehicle3{
+    public Car31(){
+        System.out.println("Ha creado un coche");
+    }
+    @Override
+    public String describe() {
+        return super.describe() + " un coche";
+    }
+}
+
+class Bike31 extends Vehicle3{
+    public Bike31(){
+        System.out.println("Ha creado una moto");
+    }
+    @Override
+    public String describe() {
+        return super.describe() + " una moto";
+    }
+}
+
+class Truck31 extends Vehicle3{
+    public Truck31(){
+        System.out.println("Ha creado un camion");
+    }
+    @Override
+    public String describe() {
+        return super.describe() + " un camión";
+    }
+}
+
+
+
 
 abstract class Shape{
     abstract void calculateArea();
@@ -144,3 +218,137 @@ class Student3 extends Person3{
         System.out.println("El estudiante está estudiando");
     }
 }
+
+abstract class Shape3{
+    void calculateArea(){
+        System.out.println("El area de la figura es: ");
+    };
+}
+
+class Circle3 extends Shape3{
+    private double radius;
+    public Circle3(double radius){
+        this.radius=radius;
+    }
+    @Override
+    void calculateArea(){
+        System.out.println("El area del circulo es: " + (2 * Math.PI * (Math.pow(this.radius,2))));
+    }
+}
+
+class Rectangle3 extends Shape3{
+    private double minorSide, maxSide;
+    public Rectangle3 (double minorSide, double maxSide){
+        this.maxSide=maxSide;
+        this.minorSide=minorSide;
+    }
+    @Override
+    void calculateArea(){
+        System.out.println("El area del rectángulo es: " + (this.minorSide * this.maxSide));
+    }
+}
+
+
+abstract class Bird3{
+    public void fly(){
+        System.out.println("Hay un pajaro volando");
+    }
+}
+
+class Eagle3 extends Bird3{
+    public Eagle3(){}
+    @Override
+    public void fly(){
+        super.fly();
+        System.out.println("El pajaro es una Águila!!");
+    }
+}
+
+class Device3{
+    public Device3(){
+        System.out.println("Device Created");
+    }
+}
+
+class Phone3 extends Device3{
+    public Phone3(){
+        System.out.println("Phone ready!!");
+    }
+}
+
+class Account3{
+    double money;
+    public Account3(double money){
+        this.money = money;
+        System.out.println("Ha creado una cuenta con un saldo de " + this.money);
+    }
+
+    public void deposit(double deposit){
+        this.money = this.money + deposit;
+        System.out.println("El nuevo saldo en la cuenta es de " + this.money);
+    }
+
+    public void withdraw(double withdraw){
+        if(this.money >= withdraw){
+            this.money = this.money - withdraw;
+            System.out.println("El nuevo saldo en la cuenta es de " + this.money);
+        }else {
+            System.out.println("No hay suficiente saldo en la cuenta");
+        }
+    }
+}
+
+class SaveAccounts3 extends Account3{
+    public SaveAccounts3(double money) {
+        super(money);
+    }
+    public void addInterest(double interest){
+        if(interest >= 1 && interest <= 100){
+            this.money = this.money *( 1 + (interest/100));
+            System.out.println("El nuevo saldo de la cuenta después de añadir el interés es de " + this.money);
+        }else{
+            System.out.println("Introduce un interés valido recuerda que solo puede introducir desde un 1% hasta un 100%");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
