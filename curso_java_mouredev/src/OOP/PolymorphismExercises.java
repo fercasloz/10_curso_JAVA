@@ -57,17 +57,109 @@ public class PolymorphismExercises {
         }
 
         // 6. Crea una clase Notification con metodo send(), y subclases EmailNotification, SMSNotification. Luego crea una función sendNotification(Notification n) que reciba cualquier tipo y lo ejecute.
+        System.out.println("----------------Ejercicio 6----------------");
+        var email = new EmailNotification();
+        var sms = new SMSNotification();
+        sendNotification(email);
+        sendNotification(sms);
 
         // 7. Crea una función showAnimalType(Animal animal) que imprima el tipo de animal. Pasa diferentes subclases (Dog, Cat, Horse) para que cada una imprima su tipo con su propio getType() sobrescrito.
+        System.out.println("----------------Ejercicio 7----------------");
+        var dog6 = new Dog6();
+        var cat6 = new Cat6();
+        var horse6 = new Horse6();
+
+        ArrayList<Animal6> misAnimales6 = new ArrayList<>();
+        misAnimales6.add(dog6);
+        misAnimales6.add(cat6);
+        misAnimales6.add(horse6);
+
+        for (Animal6 an : misAnimales6){
+            an.getType();
+        }
 
         // 8. Crea una clase Converter con métodos convert(int), convert(double), y convert(String) que devuelvan diferentes formatos de texto.
+        System.out.println("----------------Ejercicio 8----------------");
+        var converter = new Converter6();
+        converter.convert("Numero: " + 5);
+        converter.convert("Numero: " + 5.2);
+        converter.convert(("Hola como estás"));
 
         // 9. Crea una clase Product con el metodo getPrice(). Luego, Book y Electronic deben sobrescribirlo con su propia lógica de descuento. Recorre una lista de Product e imprime el precio final de cada uno.
+        System.out.println("----------------Ejercicio 9----------------");
 
         // 10. Crea una clase Character con metodo attack(). Luego crea subclases Warrior, Archer, Mage con ataques diferentes. En main, crea un array de Character y llama a attack() para cada uno.
+        System.out.println("----------------Ejercicio 10----------------");
+
+    }
+
+    public static void sendNotification(Notification n){
+        n.send();
+    }
+
+    public static void showAnimalType(Animal6 animal){
+        animal.getType();
     }
 }
 
+class Converter6{
+    public void convert(int num){
+        System.out.println(String.valueOf(num));
+    }
+    public void convert(double num){
+        System.out.println(String.valueOf(num));
+    }
+    public void convert(String num){
+        System.out.println(String.valueOf(num));
+    }
+}
+abstract class Animal6{
+    public void getType(){
+        System.out.println("Es una animal");
+    }
+}
+class Dog6 extends Animal6{
+    @Override
+    public void getType(){
+        System.out.println("El animal es un perro");
+    }
+}
+
+class Cat6 extends Animal6{
+    @Override
+    public void getType(){
+        System.out.println("El animal es un gato");
+    }
+}
+
+class Horse6 extends Animal6{
+    @Override
+    public void getType(){
+        System.out.println("El animal es un caballo");
+    }
+}
+
+abstract class Notification{
+    public void send(){}
+
+}
+
+class EmailNotification extends Notification{
+    public EmailNotification(){}
+    @Override
+    public void send() {
+        System.out.println("Se envia notificaciñon vía email");
+    }
+}
+
+class SMSNotification extends Notification{
+    public SMSNotification(){}
+
+    @Override
+    public void send() {
+        System.out.println("Se envia notificación vía sms");
+    }
+}
 abstract class Vehicule5{
     public void start(){}
 }
