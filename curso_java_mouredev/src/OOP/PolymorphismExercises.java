@@ -1,6 +1,7 @@
 package OOP;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PolymorphismExercises {
     public static void main(String[] args) {
@@ -85,10 +86,22 @@ public class PolymorphismExercises {
         converter.convert("Numero: " + 5.2);
         converter.convert(("Hola como estás"));
 
-        // 9. Crea una clase Product con el metodo getPrice(). Luego, Book y Electronic deben sobrescribirlo con su propia lógica de descuento. Recorre una lista de Product e imprime el precio final de cada uno.
+        // 9. Crea una clase Product con el metodo getPrice(). Luego, Book y Electronic deben sobrescribirlo
+        //    con su propia lógica de descuento. Recorre una lista de Product e imprime el precio final de cada uno.
         System.out.println("----------------Ejercicio 9----------------");
 
-        // 10. Crea una clase Character con metodo attack(). Luego crea subclases Warrior, Archer, Mage con ataques diferentes. En main, crea un array de Character y llama a attack() para cada uno.
+        List<Product6> products6 = new ArrayList<>();
+        products6.add(new Book6(20));
+        products6.add(new Electronic6(100.0));
+        products6.add(new Book6(25.50));
+
+        for(Product6 p : products6){
+            System.out.printf("%s | Precio final: %.2f €%n", p.toString(), p.getPrice());
+        }
+
+        // 10. Crea una clase Character con metodo attack().
+        // Luego crea subclases Warrior, Archer, Mage con ataques diferentes.
+        // En main, crea un array de Character y llama a attack() para cada uno.
         System.out.println("----------------Ejercicio 10----------------");
 
     }
@@ -101,6 +114,62 @@ public class PolymorphismExercises {
         animal.getType();
     }
 }
+
+abstract class Product6{
+    private double basePrice;
+    public Product6(double basePrice){
+        if(basePrice < 0){
+            throw new IllegalArgumentException("El precio no puede ser negativo");
+        }
+        this.basePrice = basePrice;
+    }
+
+    /**
+     * Devuelve el precio final aplicando la lógica específica del producto.
+     */
+    public abstract double getPrice();
+
+    protected double getBasePrice(){
+        return basePrice;
+    }
+}
+
+class Book6 extends Product6{
+    private static final double discount = 0.20;  // 20%
+    public Book6(double basePrice) {
+        super(basePrice);
+    }
+    @Override
+    public double getPrice(){
+        return getBasePrice() * (1 - discount);
+    }
+
+    @Override
+    public String toString(){
+        return "Book";
+    }
+}
+
+class Electronic6 extends Product6{
+    private static final double discount = 0.10; // 10%
+    public Electronic6(double basePrice){
+        super(basePrice);
+    }
+
+    @Override
+    public double getPrice(){
+        return getBasePrice() * (1 - discount);
+    }
+
+    @Override
+    public String toString(){
+        return "Electronic";
+    }
+}
+
+
+
+
 
 class Converter6{
     public void convert(int num){
