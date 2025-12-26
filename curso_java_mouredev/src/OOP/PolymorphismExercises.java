@@ -99,10 +99,19 @@ public class PolymorphismExercises {
             System.out.printf("%s | Precio final: %.2f €%n", p.toString(), p.getPrice());
         }
 
-        // 10. Crea una clase Character con metodo attack().
-        // Luego crea subclases Warrior, Archer, Mage con ataques diferentes.
+
+        // 10. Crea una clase Character con metodo attack().Luego crea subclases Warrior, Archer, Mage con ataques diferentes.
         // En main, crea un array de Character y llama a attack() para cada uno.
         System.out.println("----------------Ejercicio 10----------------");
+
+        List<Character6> characters6 = new ArrayList<>();
+        characters6.add(new Warrior6());
+        characters6.add(new Archer6());
+        characters6.add(new Mage6());
+
+        for (Character6 character6 : characters6){
+            character6.attack();
+        }
 
     }
 
@@ -112,6 +121,33 @@ public class PolymorphismExercises {
 
     public static void showAnimalType(Animal6 animal){
         animal.getType();
+    }
+}
+
+class Character6{
+    public void attack(){
+        System.out.println("El personaje ataca");
+    }
+}
+
+class Warrior6 extends Character6{
+    @Override
+    public void attack(){
+        System.out.println("Guerrero ataca con espada");
+    }
+}
+
+class Archer6 extends Character6{
+    @Override
+    public void attack(){
+        System.out.println("Arquero dispara flecha");
+    }
+}
+
+class Mage6 extends Character6{
+    @Override
+    public void attack(){
+        System.out.println("Mago lanza hechizo de fuego");
     }
 }
 
